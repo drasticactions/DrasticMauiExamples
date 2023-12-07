@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiRssSample.Controls.FeedListPage">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Items}" RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="30, *">
+                            <Border HeightRequest="15"
+                                    WidthRequest="15"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center" 
+                                    Stroke="Blue"
+                                    BackgroundColor="Blue">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5" />
+                                </Border.StrokeShape>
+                            </Border>
+                            <Grid
+                                VerticalOptions="Center"
+                                Grid.Column="1"
+                                RowSpacing="5"
+                                RowDefinitions="Auto, 10">
+                                <Label
+                                    LineBreakMode="WordWrap"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Title}"
+                                    MaxLines="2"/>
+                                <Grid ColumnDefinitions="*, *" Grid.Row="1">
+                                    <Label FontSize="Caption" HorizontalOptions="Start" Text="{Binding Author}"/>
+                                    <Label Grid.Column="1"
+                                           FontSize="Caption"
+                                           HorizontalOptions="End"
+                                           Text="{Binding PublishingDate}"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

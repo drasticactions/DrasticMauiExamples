@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiRssSample.Controls.RssItemsPage">
+    <ListView RowHeight="70" Margin="5" ItemsSource="{Binding Items}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid ColumnSpacing="5" ColumnDefinitions="50, *">
+                        <Border Stroke="Transparent" VerticalOptions="Center"
+                                HeightRequest="50"
+                                BackgroundColor="Purple"
+                                WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5"/>
+                            </Border.StrokeShape>
+                            <Image
+                                HeightRequest="50"
+                                WidthRequest="50"
+                                Source="dotnet_bot.png"/>
+                        </Border>
+                        <Label VerticalOptions="Center" Grid.Column="1" Text="{Binding Title}"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
